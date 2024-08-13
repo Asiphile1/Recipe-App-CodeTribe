@@ -1,3 +1,10 @@
 {
-    "users": []
+  "users": [
+    {
+      "id": "c2a1",
+      "username": "Asiphile ",
+      "email": "asi@gmail.com",
+      "password": "12345"
+    }
+  ]
 }
