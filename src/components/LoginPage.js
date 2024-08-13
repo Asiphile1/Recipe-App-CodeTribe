@@ -9,6 +9,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    // adding validation checking
+    if (!email || !password) {
+      alert('Please enter both email and password');
+      return;
+    }
+
     try {
       const response = await axios.get(`http://localhost:3001/users?email=${email}&password=${password}`);
       if (response.data.length > 0) {
@@ -47,7 +53,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
 
 
 
