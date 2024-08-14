@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './LoginPage.css';
+import backgroundVideo from '../assets/4057920-uhd_2160_4096_25fps.mp4';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -9,16 +10,14 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    // adding validation checking
     if (!email || !password) {
       alert('Please enter both email and password');
       return;
     }
 
     try {
-      const response = await axios.get(`http://localhost:3001/users?email=${email}&password=${password}`);
+      const response = await axios.get(`http://localhost:3002/users?email=${email}&password=${password}`);
       if (response.data.length > 0) {
-        
         navigate('/home');
       } else {
         alert('Invalid email or password');
@@ -31,28 +30,96 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Don't have an account with us yet? <Link to="/register">Register Here</Link>
-      </p>
+      <div className="login-video">
+        <video className="video-background" autoPlay loop muted>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      </div>
+      <div className="login-content">
+        <h2>Login</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+        <p>
+          Don't have an account with us yet? <Link to="/register">Register Here</Link>
+        </p>
+      </div>
     </div>
   );
 };
 
 export default LoginPage;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { useNavigate, Link } from 'react-router-dom';
+// import axios from 'axios';
+// import './LoginPage.css';
+
+// const LoginPage = () => {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleLogin = async () => {
+//     // adding validation checking
+//     if (!email || !password) {
+//       alert('Please enter both email and password');
+//       return;
+//     }
+
+//     try {
+//       const response = await axios.get(`http://localhost:3001/users?email=${email}&password=${password}`);
+//       if (response.data.length > 0) {
+        
+//         navigate('/home');
+//       } else {
+//         alert('Invalid email or password');
+//       }
+//     } catch (error) {
+//       console.error('Error during login:', error);
+//       alert('An error occurred. Please try again.');
+//     }
+//   };
+
+//   return (
+//     <div className="login-container">
+//       <h2>Login</h2>
+//       <input
+//         type="email"
+//         placeholder="Email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//       />
+//       <input
+//         type="password"
+//         placeholder="Password"
+//         value={password}
+//         onChange={(e) => setPassword(e.target.value)}
+//       />
+//       <button onClick={handleLogin}>Login</button>
+//       <p>
+//         Don't have an account with us yet? <Link to="/register">Register Here</Link>
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default LoginPage;
 
 
 

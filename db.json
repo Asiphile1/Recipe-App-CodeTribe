@@ -2,9 +2,32 @@
   "users": [
     {
       "id": "c2a1",
-      "username": "Asiphile ",
+      "username": "Asiphile",
       "email": "asi@gmail.com",
       "password": "12345"
     }
-  ]
+  ],
+  "recipes": [
+    {
+      "id": "c9b8",
+      "name": "Carrot Cake",
+      "ingredients": [
+        "Pecans and Raisins",
+        "Carrots",
+        "Eggs",
+        "Salt",
+        "cinnamon",
+        "and vanilla extract",
+        "Oil",
+        "Sugar",
+        "Baking soda",
+        "Flour"
+      ]
+      }
+
+      ]
 }
+
+
+    
+    
